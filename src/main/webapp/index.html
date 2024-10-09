@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+<h2>Enter Book Details</h2>
+<pre>
+
+<P>First open a java enterprise project --> then configure tomcat server& import jdbc postgres sql jar
+    from for submission navigate to @WebServlet("/uri)--> then it will land to Servlet class based on the
+    method call(get or post)
+    in the servlet class we have to override doPost or doGet method..
+    Then have to write a static private query
+    doPost(HttpServletrequest req, HttpServletResponse res){
+    -->first get pritWriter from the response
+    -->Then setContentType of the printWriter (text/html)
+    --> so based on the printWriter we can call the html file also in the println
+    --> Now get the parameters from the request
+    -->Now comes into the DB part
+    --> first load the driver (Class.forName("driverUrl")
+    --> Make a connection by giving dirver path url , username and password
+    --> Preapre statement by giving our query inside and set values if need then excecute query
+    {
+      Connection con= DriverManager.getConnection("url",user, password);
+      PreparedStatemnt statement= con.prepareStatement(query);
+      statement.setString(1,"values-we are-going-to-give");
+      statement.excecuteUpadte();
+    }
+    --> if the query is selective one it will give result set
+</P>
+<form action="register" method="post">
+    <tr>
+        <td>BookName</td>
+        <td> <input type="text" name="bookName"></td>
+    </tr>
+    <tr>
+        <td>BookEdition</td>
+        <td> <input type="text" name="bookEdition"></td>
+    </tr>
+    <tr>
+        <td>BookPrice</td>
+        <td> <input type="text" name="bookprice"></td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="register"></td><td><input type="reset" value="clear"></td>
+    </tr>
+
+</form>
+
+</body>
+
+
+<a href="https://www.w3schools.com/tags/att_form_method.asp#:~:text=Definition%20and%20Usage,method%3D%22post%22%20).">Form Definition reference</a>
+<a href="https://idiotprogrammern.blogspot.com/2021/10/servlet-project-book-shop-application.html">Code Refernce site</a>
+</pre>
+</html>
